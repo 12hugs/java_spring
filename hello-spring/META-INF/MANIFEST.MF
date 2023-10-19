@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: hello.spring
 Export-Package: com.example.demo,
- controller,
+ com.example.demo.controller,
  templates
 Require-Bundle: org.junit,
  junit-jupiter-api

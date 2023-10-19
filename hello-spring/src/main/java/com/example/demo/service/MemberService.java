@@ -3,16 +3,21 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import domain.Member;
-import repository.MemberRepositoty;
-import repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class MemberService {
-	
-	private final MemberRepositoty memberRepositoty = new MemoryMemberRepository();
+import com.example.demo.domain.Member;
+import com.example.demo.repository.MemberRepositoty;
+import com.example.demo.repository.MemoryMemberRepository;
 
+public class MemberService {  
 	
-	
+	private final MemberRepositoty memberRepositoty;
+
+	public MemberService(MemberRepositoty memberRepositoty) {
+		this.memberRepositoty = memberRepositoty;
+	}
+
 	// 회원가입
 	public long join(Member member) {
 		// 같은 이름이 있는 중복 회원은 안되게 로직 구성하기
