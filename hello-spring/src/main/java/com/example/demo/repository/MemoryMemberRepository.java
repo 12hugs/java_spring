@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
 
 import com.example.demo.domain.Member;
 
 public class MemoryMemberRepository implements MemberRepositoty{
 
-	private static Map<Long, Member> store = new HashMap<>(); // Map을 통해서 store을 세팅함. store에는 매개변수 타입만 맞으면 전역으로 변수를 사용할 수 있음
+	private static Map<Long, Member> store = new HashMap<>(); 
 	private static long sequence = 0L;
 	
 	@Override
