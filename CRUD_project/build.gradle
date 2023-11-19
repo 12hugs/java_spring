@@ -27,7 +27,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'// final이 붙어있으면 자동으로 생성자 생성
 	implementation 'org.springframework.boot:spring-boot-starter-web'// 기본
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'//기본
-	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc7', version: '11.2.0.4'
+	implementation group: 'com.oracle.database.jdbc', name: 'ojdbc6', version: '11.2.0.4'
 	compileOnly 'org.projectlombok:lombok'// Lombok 롬복
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'// Lombok 롬복

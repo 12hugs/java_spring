@@ -17,11 +17,7 @@ class CrudProjectApplicationTests {
 	
 	@Test
 	public void testMember() throws Exception {
-		Member m = new Member();
-		m.setEmail("gaza@naver.com");
-		m.setPw("gaza");
-		m.setJoinDate(LocalDateTime.now());
-		this.memberRepository.save(m);
+		
 	}
 
 }

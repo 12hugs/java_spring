@@ -13,8 +13,15 @@ public class MemberController {
 	
 	private final MemberRepository memberRepository;
 	
-	@GetMapping("/member/join")
-	public String LoginForm() {
-		return "joinForm";
+	@GetMapping("/member/login")
+	public String loginForm() {
+		return "member/login";
 	}
+	
+	@GetMapping("/member/join")
+	public String joinForm() {
+		return "member/join";
+	}
+	
+	
 }
