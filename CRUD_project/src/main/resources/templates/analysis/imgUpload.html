@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1>이미지 업로드</h1>
+	<form th:action="@{/img/img_upload}" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" accept="image/*" required />
+		<input type="submit" value="업로드" />
+	</form>
+
+	<h1>이미지 업로드 판정</h1>
+	<a th:text="${message}">성공 or 실패</a>
+
+	<h1>이미지 표시</h1>
+	<img th:if="${msg=='true'}" th:src="'data:image/png;base64,' + ${base64Image}" alt="Image">
+	<a th:unless="${msg=='true'}">이미지 출력 실패</a>
+
+
+</body>
+
+</html>
