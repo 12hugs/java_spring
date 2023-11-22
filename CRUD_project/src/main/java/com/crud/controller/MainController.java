@@ -8,6 +8,8 @@ public class MainController {
 
 	@GetMapping("/")
 	public String goMain() {
-		return "startForm";
+		return "member/startForm";
 	}
+	
+	
 }

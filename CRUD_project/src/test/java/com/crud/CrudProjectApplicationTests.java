@@ -16,8 +16,17 @@ class CrudProjectApplicationTests {
 	private MemberRepository memberRepository;
 	
 	@Test
-	public void testMember() throws Exception {
-		
+	public void 멤버_테스트() {
+		Member member = new Member();
+        
+        member.setMb_id("01681747");
+        member.setMb_pw("11647439");
+        member.setMb_name("진영준");
+        member.setMb_company("유니클로 연제점");
+        member.setJoined_at(LocalDateTime.now());
+        member.setLast_at(LocalDateTime.now());
+        member.setProfile_img("경로");
+        this.memberRepository.save(member);
 	}
 
 }
