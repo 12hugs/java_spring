@@ -8,58 +8,63 @@
 	<table>
 		<thead>
 			<tr>
+				<th>번호</th>
 				<th>제목</th>
-				<th>내용</th>
 				<th>작성일시</th>
-			</tr>			
+			</tr>
 		</thead>
 		<tbody>
-			<!--
-				th:~ 타임리프 문법
-				each - for each문
+			<!-- th:~ 타임리프 문법
+				each - 포이치문
 				text - 해당 내용을 태그안에 출력
-				href - 링크삽입				
-			-->
-			<tr th:each="board, loop:${boardList}">
-				<th th:text="${loop.count}"></th>
-				<th><a th:href="@{|/board/detail/${board.boardNum}|}" th:text="${board.boardTitle}"></a></th>
-				<th th:text="${board.boardDate}"></th>
+				href - 링크삽입(링크를 넣을때는 @{}를 사용한다.)
+				     - ||넣는 이유 : 문자열과 표현식을 함께 사용할때 에러가 나지 않도록 함			
+			 -->
+			<tr th:each="board,loop:${boardList}">
+				<td th:text="${loop.count}"></td>
+				<td><a th:href="@{|/board/detail/${board.boardNum}|}"  th:text="${board.boardTitle}"></a></td>
+				<td th:text="${board.boardDate}"></td>
 			</tr>
 		</tbody>
 	</table>
 	
-	<!--페이징 처리하기-->
-	<!--Page 객체가 가진 속성
+	<a th:href="@{/board/create}">글쓰기</a>
+	
+	<!-- 페이징 처리 하기 -->
+	<!-- Page 객체가 가진 속성
 		.isEmpty - 페이지가 null인지 판단(null이면 true, notNull이면 false)
 		.totalElements - 전체 게시글 개수
 		.totalPages - 전체 페이지 수
-		.size - 페이지당 보여줄 수 있는 게시글 수
+		.size - 페이지당 보여줄 게시글 수
 		.number - 현재 페이지 번호
 		.hasPrevious - 이전 페이지가 있는지 판단
-		.hasNext - 다음 페이지가 있는지 판단
+		.hasNext - 다음 페이지가 있는지 판단 
 	-->
-	<div th:if="${!boardList.isEmpty}"> <!--boardList가 null이 아닐 때-->
+	<div th:if="${!boardList.isEmpty}">
 		<ul>
-			<li th:style="${!boardList.hasPrevious} ? 'display:none;': ''">
+			<!-- 삼항연산자 - a ? b : c -->
+			<li th:style="${!boardList.hasPrevious} ? 'display:none;' : '' ">
 				<a th:href="@{|?page=${boardList.number-1}|}">
 					<span>이전</span>
 				</a>
 			</li>
-		</ul>
-		<ul>
-			<li th:each="page : ${#numbers.sequence(0, boardList.totalPages-1)}"
+			
+			<li th:each="page: ${#numbers.sequence(0, boardList.totalPages-1)}"
 				th:if="${page >= boardList.number-3 and page <= boardList.number+3}">
 				<a th:text="${page}" th:href="@{|?page=${page}|}"></a>
 			</li>
-		</ul>
-		<ul>
-			<li th:style="${!boardList.hasNext} ? 'display:none;': ''">
+			
+			<li th:style="${!boardList.hasNext} ? 'display:none;' : '' ">
 				<a th:href="@{|?page=${boardList.number+1}|}">
 					<span>다음</span>
 				</a>
 			</li>
 		</ul>
 	</div>
+	
+	
+	
+	
 	
 	
 	

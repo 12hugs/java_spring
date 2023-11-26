@@ -1,4 +1,4 @@
-package com.example.bootStart01;
+package com.soon.bootStart01;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,4 +13,5 @@ public class DataNotFound extends RuntimeException{
 	public DataNotFound(String message) {
 		super(message);
 	}
+	
 }

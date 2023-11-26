@@ -1,4 +1,4 @@
-package com.example.bootStart01.controller;
+package com.soon.bootStart01.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,4 +10,5 @@ public class MainController {
 	public String goMain() {
 		return "main";
 	}
+
 }
